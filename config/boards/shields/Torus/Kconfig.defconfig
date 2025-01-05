@@ -1,17 +1,24 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_MINI_TORUS_LEFT
+
+config ZMK_BLE
+	default y
+
+config ZMK_USB
+	default y
+
+if SHIELD_TORUS_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Mini_Torus"
+    default "Torus"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_MINI_TORUS_LEFT || SHIELD_MINI_TORUS_RIGHT
+if SHIELD_TORUS_LEFT || SHIELD_TORUS_RIGHT
 
 config ZMK_SPLIT
     default y
