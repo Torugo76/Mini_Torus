@@ -79,6 +79,7 @@
         sen1 {
             bindings = <&s1>;
             key-positions = <4 3 2>;
+            layers = <1>;
         };
 
         /*
