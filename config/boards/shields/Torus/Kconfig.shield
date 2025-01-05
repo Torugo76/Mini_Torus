@@ -1,5 +1,5 @@
-config SHIELD_TORUS_LEFT
-    def_bool $(shields_list_contains,Torus_left)
+config SHIELD_MINI_TORUS_LEFT
+    def_bool $(shields_list_contains,Mini_Torus_left)
 
 config SHIELD_TORUS_RIGHT
-    def_bool $(shields_list_contains,Torus_right)
+    def_bool $(shields_list_contains,Mini_Torus_right)
