@@ -40,8 +40,7 @@
         // Essas linhas precisam estar igualmentente soldadas em cada lado. Se a linha do 'qwert' estiver soldada na GP/IO 1 no lado esquerdo, no lado direito também precisa estar.
             diode-direction = "col2row";
             row-gpios
-                = <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                = <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
                 , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
                 , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
                 , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
