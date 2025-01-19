@@ -1,4 +1,4 @@
-#include "mini_torus.dtsi"
+#include "minitorus.dtsi"
 
 //Deslocamento (col-offset) de 6 porque o lado esquerdo tem 6 colunas, entao para lado direito, tem que pular essas colunas.
 &default_transform {

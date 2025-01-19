@@ -8,17 +8,17 @@ config ZMK_BLE
 config ZMK_USB
 	default y
 
-if SHIELD_MINI_TORUS_LEFT
+if SHIELD_MINITORUS_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Mini_Torus"
+    default "MiniTorus"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_MINI_TORUS_LEFT || SHIELD_MINI_TORUS_RIGHT
+if SHIELD_MINITORUS_LEFT || SHIELD_MINITORUS_RIGHT
 
 config ZMK_SPLIT
     default y

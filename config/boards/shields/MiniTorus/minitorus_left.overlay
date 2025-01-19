@@ -1,4 +1,4 @@
-#include "mini_torus.dtsi"
+#include "minitorus.dtsi"
 
 
 // Essas linhas nao precisam estar igualmentente soldadas em cada lado mas de preferência soldar iguais. Mas provavel que tenha que inverter no outro '.overlay' a ordem se estiver ao contrario.
