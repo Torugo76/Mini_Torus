@@ -82,25 +82,21 @@
         Desfazazer {
             bindings = <&kp LC(Z)>;
             key-positions = <37 38 20 21>;
-            layers = <1>;
         };
 
         Refazer {
             bindings = <&kp LC(Y)>;
             key-positions = <38 37 39 20 21 22>;
-            layers = <1>;
         };
 
         Copiar {
             bindings = <&kp LC(C)>;
             key-positions = <38 39 21 22>;
-            layers = <1>;
         };
 
         Colar {
             bindings = <&kp LC(V)>;
             key-positions = <40 39 22 23>;
-            layers = <1>;
         };
 
         Recortar {
@@ -111,19 +107,16 @@
         Selecionar_Tudo {
             bindings = <&kp LC(A)>;
             key-positions = <37 20 10>;
-            layers = <1>;
         };
 
         Esc {
             bindings = <&kp ESC>;
             key-positions = <10 11>;
-            layers = <1>;
         };
 
         Delete-Dir {
             bindings = <&kp DELETE>;
             key-positions = <7 8 9>;
-            layers = <3>;
         };
 
         Delete-Esq {
@@ -140,7 +133,6 @@
         Enter-Esq {
             bindings = <&kp ENTER>;
             key-positions = <3 4>;
-            layers = <1>;
         };
 
         Tab {
