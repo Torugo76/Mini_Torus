@@ -188,6 +188,13 @@
             #binding-cells = <0>;
             bindings = <&mo 3>, <&mo 4>;
         };
+
+        NumFunc: NumFunc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NUMFUNC";
+            #binding-cells = <0>;
+            bindings = <&mo 5>, <&mo 6>;
+        };
     };
 
     keymap {
@@ -198,10 +205,10 @@
         default_layer {
             display-name = "BASE";
             bindings = <
-&kp Q           &kp W           &kp E               &kp R             &kp T                                     &kp Y      &kp U              &kp I                &kp O            &kp P
-&mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G                                     &kp H      &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMI
-&kp Z           &kp X           &kp C               &kp V             &kp B                                     &kp N      &kp M              &mt SQT COMMA        &kp DOT          &mt BSLH FSLH
-                                                    &EsqLayer         &EsqLayer  &mt LALT SPACE      &kp SPACE  &DirLayer  &none
+&kp Q           &kp W           &kp E               &kp R             &kp T                                    &kp Y      &kp U              &kp I                &kp O            &kp P
+&mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G                                    &kp H      &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMI
+&kp Z           &kp X           &kp C               &kp V             &kp B                                    &kp N      &kp M              &mt SQT COMMA        &kp DOT          &mt BSLH FSLH
+                                                    &EsqLayer         &NumFunc  &mt LALT SPACE      &kp SPACE  &DirLayer  &mo 4
             >;
         };
 
@@ -235,7 +242,7 @@
             >;
         };
 
-        DIR {
+        NAV {
             display-name = "DIREITA";
 
             // ┌─────┬────┬─────┬─────┬─────┐               ┌───────┬─────┬─────┬─────┬─────┐
@@ -249,10 +256,10 @@
             //                  └─────┴─────┘               └───────┴─────┘
 
             bindings = <
-&none  &none  &none  &none  &none                    &kp PG_UP   &none         &kp UP        &none      &mt MINUS EQUAL
-&none  &none  &none  &none  &none                    &kp PG_DN   &kp LEFT      &kp DOWN      &kp RIGHT  &kp TILDE
-&none  &none  &none  &none  &none                    &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &none      &kp BSLH
-                     &none  &none  &none      &none  &none       &none
+&none  &none  &none  &none  &none                    &kp PG_UP  &none     &kp UP    &none      &mt MINUS EQUAL
+&none  &none  &none  &none  &none                    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp TILDE
+&none  &none  &none  &none  &none                    &none      &none     &none     &none      &kp BSLH
+                     &none  &none  &none      &none  &none      &none
             >;
         };
 
@@ -312,7 +319,7 @@
             bindings = <
 &mkp MB3  &mkp MB4        &mmv MOVE_UP     &mkp MB5         &msc SCRL_UP                         &none  &none  &none  &none  &none
 &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &msc SCRL_DOWN                       &none  &none  &none  &none  &none
-&tog 0    &msc SCRL_LEFT  &msc SCRL_RIGHT  &none            &none                                &none  &none  &none  &none  &none
+&tog 1    &msc SCRL_LEFT  &msc SCRL_RIGHT  &none            &none                                &none  &none  &none  &none  &none
                                            &none            &mkp MB1        &mkp MB2      &none  &none  &none
             >;
         };
