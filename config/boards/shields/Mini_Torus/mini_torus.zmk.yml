@@ -2,7 +2,7 @@ file_format: "1"
 id: mini_torus
 name: Mini_Torus
 type: shield
-url: https://github.com/Torugo76/Torus
+url: https://github.com/Torugo76/Mini_Torus
 requires: [pro_micro]
 features:
   - keys
