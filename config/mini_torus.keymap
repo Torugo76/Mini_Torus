@@ -1,6 +1,7 @@
 //Inicio das incluçoes
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -60,97 +61,98 @@
 
     combos {
         compatible = "zmk,combos";
+
         Backspace-Dir {
             timeout-ms = <30>;
             bindings = <&kp BACKSPACE>;
-            key-positions = <22 21>;
+            key-positions = <8 9>;
         };
 
         CapsLock {
             timeout-ms = <30>;
-            key-positions = <25 13>;
+            key-positions = <10 0>;
             bindings = <&kp CAPSLOCK>;
         };
 
         Sen1 {
             bindings = <&Sen1>;
-            key-positions = <16 15 29>;
+            key-positions = <14 3 2>;
             layers = <1>;
         };
 
         Enter-Dir {
             bindings = <&kp ENTER>;
-            key-positions = <18 19>;
+            key-positions = <5 6>;
             layers = <3>;
         };
 
         Desfazazer {
             bindings = <&kp LC(Z)>;
-            key-positions = <37 38>;
+            key-positions = <37 38 20 21>;
             layers = <1>;
         };
 
         Refazer {
             bindings = <&kp LC(Y)>;
-            key-positions = <38 37 39>;
+            key-positions = <38 37 39 20 21 22>;
             layers = <1>;
         };
 
         Copiar {
             bindings = <&kp LC(C)>;
-            key-positions = <38 39>;
+            key-positions = <38 39 21 22>;
             layers = <1>;
         };
 
         Colar {
             bindings = <&kp LC(V)>;
-            key-positions = <40 39>;
+            key-positions = <40 39 22 23>;
             layers = <1>;
         };
 
         Recortar {
             bindings = <&kp LC(X)>;
-            key-positions = <38 39 40>;
+            key-positions = <38 39 40 21 22 23>;
         };
 
         Selecionar_Tudo {
             bindings = <&kp LC(A)>;
-            key-positions = <37 25>;
+            key-positions = <37 20 10>;
             layers = <1>;
         };
 
         Esc {
             bindings = <&kp ESC>;
-            key-positions = <25 26>;
+            key-positions = <10 11>;
             layers = <1>;
         };
 
         Delete-Dir {
             bindings = <&kp DELETE>;
-            key-positions = <22 21 20>;
+            key-positions = <7 8 9>;
             layers = <3>;
         };
 
         Delete-Esq {
             bindings = <&kp DELETE>;
-            key-positions = <13 14 15>;
+            key-positions = <0 1 2>;
             layers = <1>;
         };
 
         Backspace-Esq {
             bindings = <&kp BACKSPACE>;
-            key-positions = <13 14>;
+            key-positions = <0 1>;
         };
 
         Enter-Esq {
             bindings = <&kp ENTER>;
-            key-positions = <17 16>;
+            key-positions = <5 6>;
             layers = <1>;
         };
 
         tab {
             bindings = <&kp TAB>;
-            key-positions = <41 40>;
+            key-positions = <41 40 23 24>;
         };
     };
 
@@ -170,9 +172,7 @@
     };
 
     //fim macro
-
     //Fim
-
 
     keymap {
         compatible = "zmk,keymap";
@@ -182,10 +182,10 @@
         default_layer {
             display-name = "BASE";
             bindings = <
-                &kp Q          &kp W           &kp E               &kp R             &kp T                 &kp Y      &kp U              &kp I                &kp O             &kp P
-                &mt LEFT_GUI A &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G                 &kp H      &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L   &mt RIGHT_GUI SEMI
-                &kp Z          &kp X           &kp C               &kp V             &kp B                 &kp N      &kp M              &mt SQT COMMA        &kp DOT           &mt BSLH FSLH
-                                               &none               &mo ESQRD         &kp SPACE             &kp SPACE  &mo DIREITA        &none
+&kp Q           &kp W           &kp E               &kp R             &kp T                                     &kp Y        &kp U              &kp I                &kp O            &kp P
+&mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G                                     &kp H        &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMI
+&kp Z           &kp X           &kp C               &kp V             &kp B                                     &kp N        &kp M              &mt SQT COMMA        &kp DOT          &mt BSLH FSLH
+                                                    &none             &mo ESQRD  &mt LALT SPACE      &kp SPACE  &mo DIREITA  &none
             >;
         };
 
@@ -206,10 +206,10 @@
             //                  └─────┴─────┘         └───────┴─────┘
 
             bindings = <
-&kp C_PP    &none       &kp C_VOL_UP  &none      &none              &none     &none     &none  &none  &none
-&kp C_PREV  &kp C_NEXT  &kp C_VOL_DN  &kp LBRC   &kp RBRC           &none     &none     &none  &none  &none
-&kp C_RW    &kp C_FF    &kp C_MUTE    &kp LBKT   &kp RBKT           &none     &none     &none  &none  &none
-                        &none         &none      &none              &none     &none     &none
+&kp C_PP    &none       &kp C_VOL_UP  &none     &none                       &none  &none  &none  &none  &none
+&kp C_PREV  &kp C_NEXT  &kp C_VOL_DN  &kp LBRC  &kp RBRC                    &none  &none  &none  &none  &none
+&kp C_RW    &kp C_FF    &kp C_MUTE    &kp LBKT  &kp RBKT                    &none  &none  &none  &none  &none
+                                      &none     &none     &none      &none  &none  &none
             >;
         };
 
@@ -230,10 +230,10 @@
             //                   └─────┴─────┘            └─────┴─────┘
 
             bindings = <
-&mkp MB3  &mkp MB4        &mmv MOVE_UP    &mkp MB5        &msc SCRL_UP                      &none  &none  &none  &none  &none
-&none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &msc SCRL_DOWN                    &none  &none  &none  &none  &none
-&none     &msc SCRL_LEFT  &msc SCRL_RIGHT &none           &none                             &none  &none  &none  &none  &none
-                          &none           &mkp MB1        &mkp MB2                          &none  &none  &none
+&mkp MB3  &mkp MB4        &mmv MOVE_UP     &mkp MB5         &msc SCRL_UP                         &none  &none  &none  &none  &none
+&none     &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &msc SCRL_DOWN                       &none  &none  &none  &none  &none
+&none     &msc SCRL_LEFT  &msc SCRL_RIGHT  &none            &none                                &none  &none  &none  &none  &none
+                                           &none            &mkp MB1        &mkp MB2      &none  &none  &none
             >;
         };
 
@@ -254,10 +254,10 @@
             //                  └─────┴─────┘               └───────┴─────┘
 
             bindings = <
-&none  &none  &none  &none  &none                    &kp PG_UP  &none     &kp UP    &none      &none
-&none  &none  &none  &none  &none                    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp TILDE
-&none  &none  &none  &none  &none                    &none      &none     &none     &none      &kp BSLH
-              &none  &none  &none                    &none      &none     &none
+&none  &none  &none  &none  &none                    &kp PG_UP       &none         &kp UP        &none      &none
+&none  &none  &none  &none  &none                    &kp PG_DN       &kp LEFT      &kp DOWN      &kp RIGHT  &kp TILDE
+&none  &none  &none  &none  &none                    &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &none      &kp BSLH
+                     &none  &none  &none      &none  &none           &none
             >;
         };
 
@@ -278,9 +278,9 @@
             //                  └─────┴─────┘               └───────┴─────┘
 
             bindings = <
-&none  &none  &none  &none  &none                    &none             &kp N4   &kp N5        &kp N6      &none
-&none  &none  &none  &none  &none                    &none             &kp N2   &kp N2        &kp N3      &none
-&none  &none  &none  &none  &none                    &none             &kp N0   &kp KP_COMMA  &kp KP_DOT  &kp KP_EQUAL
+&none  &none  &none  &none  &none                    &none     &kp N4  &kp N5        &kp N6      &none
+&none  &none  &none  &none  &none                    &none     &kp N2  &kp N2        &kp N3      &none
+&none  &none  &none  &none  &none                    &none     &kp N0  &kp KP_COMMA  &kp KP_DOT  &kp KP_EQUAL
                      &none  &none  &none      &none  &tog Num  &none
             >;
         };
@@ -305,7 +305,7 @@
 &none  &none  &none  &none  &none                    &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none                    &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none                    &none  &none  &none  &none  &none
-                     &none  &none  &none      &none  &none &none
+                     &none  &none  &none      &none  &none  &none
             >;
         };
 
