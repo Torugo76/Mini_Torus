@@ -2,7 +2,7 @@
 
 //Deslocamento (col-offset) de 6 porque o lado esquerdo tem 6 colunas, entao para lado direito, tem que pular essas colunas.
 &default_transform {
-    col-offset = <6>;
+    col-offset = <5>;
 };
 
 
