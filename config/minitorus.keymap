@@ -32,7 +32,7 @@
     flavor = "tap-preferred";
     tapping-term-ms = <250>;
     require-prior-idle-ms = <125>;
-    quick-tap-ms = <100>;
+    quick-tap-ms = <60>;
 };
 
 //SK = 
@@ -55,12 +55,6 @@
     combos {
         compatible = "zmk,combos";
 
-        Backspace-Dir {
-            timeout-ms = <30>;
-            bindings = <&kp BACKSPACE>;
-            key-positions = <8 9>;
-        };
-
         CapsLock {
             timeout-ms = <30>;
             key-positions = <10 0>;
@@ -70,39 +64,12 @@
         Sen1 {
             bindings = <&Sen1>;
             key-positions = <14 3 2>;
-            layers = <1>;
-        };
-
-        Enter-Dir {
-            bindings = <&kp ENTER>;
-            key-positions = <5 6>;
-            layers = <3>;
+            layers = <5>;
         };
 
         Esc {
             bindings = <&kp ESC>;
             key-positions = <10 11>;
-        };
-
-        Delete-Dir {
-            bindings = <&kp DELETE>;
-            key-positions = <7 8 9>;
-        };
-
-        Delete-Esq {
-            bindings = <&kp DELETE>;
-            key-positions = <0 1 2>;
-        };
-
-        Backspace-Esq {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <0 1>;
-        };
-
-        Enter-Esq {
-            bindings = <&kp ENTER>;
-            key-positions = <3 4>;
-            layers = <5>;
         };
 
         Tab {
@@ -169,7 +136,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "ESQLAYER";
             #binding-cells = <0>;
-            bindings = <&mo 1>, <&mo 2>;
+            bindings = <&mo 5>, <&mo 6>;
         };
 
         DirLayer: DirLayer {
@@ -183,7 +150,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "NUM_FUNC";
             #binding-cells = <0>;
-            bindings = <&mo 5>, <&mo 6>;
+            bindings = <&mo 1>, <&mo 2>;
         };
     };
 
@@ -199,6 +166,67 @@
 &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G                                     &kp H      &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMI
 &kp Z           &kp X           &kp C               &kp V             &kp B                                     &kp N      &kp M              &mt SQT COMMA        &kp DOT          &mt BSLH FSLH
                                                     &EsqLayer         &Num_Func  &mt LALT SPACE      &kp SPACE  &DirLayer  &mo 4
+            >;
+        };
+
+        Num {
+            display-name = "Num";
+
+            // ┌─────┬────┬─────┬─────┬─────┐               ┌───────┬─────┬─────┬─────┬─────┐
+            // │     |    |     |     |     |               │       |  4  |  5  |  6  |     |
+            // ├─────┼────┼─────┼─────┼─────┤               ├───────┼─────┼─────┼─────┼─────┤
+            // │     |    |     |     |     |               │       |  1  |  2  |  3  |     |
+            // ├─────┼────┼─────┼─────┼─────┤               ├───────┼─────┼─────┼─────┼─────┤
+            // │     |    |     |     |     |               │       |  0  |  ,  |  .  |  =  |
+            // └─────┴────┴─────┼─────┼─────┤               ├───────┼─────┼─────┴─────┴─────┘
+            //                  |     |     |               │       |     |
+            //                  └─────┴─────┘               └───────┴─────┘
+
+            bindings = <
+&kp N1  &kp N2  &kp N3  &kp LBKT  &kp ENTER                        &none  &none  &none  &none  &none
+&kp N4  &kp N5  &kp N6  &kp RBKT  &kp BACKSPACE                    &none  &none  &none  &none  &none
+&kp N7  &kp N8  &kp N9  &kp N0    &kp DEL                          &none  &none  &none  &none  &none
+                        &none     &none          &none      &none  &none  &none
+            >;
+        };
+
+        Func {
+            display-name = "Num";
+            bindings = <
+&kp F1  &kp F2  &kp F3  &none    &none                      &none  &none  &none  &none  &none
+&kp F4  &kp F5  &kp F6  &none    &none                      &none  &none  &none  &none  &none
+&kp F7  &kp F8  &kp F9  &kp F11  &kp F12                    &none  &none  &none  &none  &none
+                        &kp F10  &none    &none      &none  &none  &none
+            >;
+        };
+
+        NAV {
+            display-name = "DIREITA";
+
+            // ┌─────┬────┬─────┬─────┬─────┐               ┌───────┬─────┬─────┬─────┬─────┐
+            // │     |    |     |     |     |               │ PG UP |     |  ▲  |     |     |
+            // ├─────┼────┼─────┼─────┼─────┤               ├───────┼─────┼─────┼─────┼─────┤
+            // │     |    |     |     |     |               │ PG DN |  ◄  |  ▼  |  ►  |     |
+            // ├─────┼────┼─────┼─────┼─────┤               ├───────┼─────┼─────┼─────┼─────┤
+            // │     |    |     |     |     |               │       |     |     |     | \ | |
+            // └─────┴────┴─────┼─────┼─────┤               ├───────┼─────┼─────┴─────┴─────┘
+            //                  |     |     |               │       |     |
+            //                  └─────┴─────┘               └───────┴─────┘
+
+            bindings = <
+&none  &none  &none  &none  &none                    &kp ENTER      &none     &kp UP     &none      &mt MINUS EQUAL
+&none  &none  &none  &none  &none                    &kp BACKSPACE  &kp LEFT  &kp DOWN   &kp RIGHT  &kp TILDE
+&none  &none  &none  &none  &none                    &kp DEL        &none     &kp PG_DN  &kp PG_UP  &kp BSLH
+                     &none  &none  &none      &none  &none          &none
+            >;
+        };
+
+        DirBT {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                      &trans        &trans        &trans        &trans        &bt BT_CLR
+&trans  &trans  &trans  &trans  &trans                      &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0
+&trans  &trans  &trans  &trans  &trans                      &trans        &trans        &trans        &trans        &bt BT_CLR_ALL
+                        &trans  &trans  &trans      &trans  &trans        &trans
             >;
         };
 
@@ -229,67 +257,6 @@
 &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                      &trans  &trans  &trans  &trans  &trans
 &bt BT_CLR_ALL  &trans        &trans        &trans        &trans                            &trans  &trans  &trans  &trans  &trans
                                             &trans        &trans        &trans      &trans  &trans  &trans
-            >;
-        };
-
-        NAV {
-            display-name = "DIREITA";
-
-            // ┌─────┬────┬─────┬─────┬─────┐               ┌───────┬─────┬─────┬─────┬─────┐
-            // │     |    |     |     |     |               │ PG UP |     |  ▲  |     |     |
-            // ├─────┼────┼─────┼─────┼─────┤               ├───────┼─────┼─────┼─────┼─────┤
-            // │     |    |     |     |     |               │ PG DN |  ◄  |  ▼  |  ►  |     |
-            // ├─────┼────┼─────┼─────┼─────┤               ├───────┼─────┼─────┼─────┼─────┤
-            // │     |    |     |     |     |               │       |     |     |     | \ | |
-            // └─────┴────┴─────┼─────┼─────┤               ├───────┼─────┼─────┴─────┴─────┘
-            //                  |     |     |               │       |     |
-            //                  └─────┴─────┘               └───────┴─────┘
-
-            bindings = <
-&none  &none  &none  &none  &none                    &kp PG_UP  &none     &kp UP    &none      &mt MINUS EQUAL
-&none  &none  &none  &none  &none                    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp TILDE
-&none  &none  &none  &none  &none                    &none      &none     &none     &none      &kp BSLH
-                     &none  &none  &none      &none  &none      &none
-            >;
-        };
-
-        DirBT {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans  &trans  &trans  &trans                      &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0
-&trans  &trans  &trans  &trans  &trans                      &trans        &trans        &trans        &trans        &bt BT_CLR_ALL
-                        &trans  &trans  &trans      &trans  &trans        &trans
-            >;
-        };
-
-        Num {
-            display-name = "Num";
-
-            // ┌─────┬────┬─────┬─────┬─────┐               ┌───────┬─────┬─────┬─────┬─────┐
-            // │     |    |     |     |     |               │       |  4  |  5  |  6  |     |
-            // ├─────┼────┼─────┼─────┼─────┤               ├───────┼─────┼─────┼─────┼─────┤
-            // │     |    |     |     |     |               │       |  1  |  2  |  3  |     |
-            // ├─────┼────┼─────┼─────┼─────┤               ├───────┼─────┼─────┼─────┼─────┤
-            // │     |    |     |     |     |               │       |  0  |  ,  |  .  |  =  |
-            // └─────┴────┴─────┼─────┼─────┤               ├───────┼─────┼─────┴─────┴─────┘
-            //                  |     |     |               │       |     |
-            //                  └─────┴─────┘               └───────┴─────┘
-
-            bindings = <
-&kp N1  &kp N2  &kp N3  &kp LBRC  &kp RBRC                    &none  &none  &none  &none  &none
-&kp N4  &kp N5  &kp N6  &kp LPAR  &kp RPAR                    &none  &none  &none  &none  &none
-&kp N7  &kp N8  &kp N9  &kp LBKT  &kp RBKT                    &none  &none  &none  &none  &none
-                        &kp N0    &none     &none      &none  &none  &none
-            >;
-        };
-
-        Func {
-            display-name = "Num";
-            bindings = <
-&kp F1  &kp F2  &kp F3  &none    &none                      &none  &none  &none  &none  &none
-&kp F4  &kp F5  &kp F6  &none    &none                      &none  &none  &none  &none  &none
-&kp F7  &kp F8  &kp F9  &kp F11  &kp F12                    &none  &none  &none  &none  &none
-                        &kp F10  &none    &none      &none  &none  &none
             >;
         };
 
