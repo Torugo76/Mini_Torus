@@ -30,9 +30,8 @@
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <250>;
-    require-prior-idle-ms = <125>;
-    quick-tap-ms = <60>;
+    tapping-term-ms = <180>;
+    quick-tap-ms = <16>;
 };
 
 //SK = 
