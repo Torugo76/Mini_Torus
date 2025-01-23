@@ -8,6 +8,9 @@ config ZMK_BLE
 config ZMK_USB
 	default y
 
+config ZMK_STUDIO
+	default y
+
 if SHIELD_MINITORUS_LEFT
 
 config ZMK_KEYBOARD_NAME
