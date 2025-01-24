@@ -1,6 +1,6 @@
 file_format: "1"
 id: minitorus
-name: MiniTorus
+name: minitorus
 type: shield
 url: https://github.com/Torugo76/Mini_Torus
 requires: [pro_micro]

@@ -11,7 +11,7 @@ config ZMK_USB
 if SHIELD_MINITORUS_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "MiniTorus"
+    default "minitorus"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
