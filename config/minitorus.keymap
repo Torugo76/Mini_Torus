@@ -27,20 +27,7 @@
 //Fim das definiçoes das camadas
 //Inicio dos comportamentos de teclas
 //MT = MOD-TAP, se eu tocar o SHIFT pelo tempo menor que delimitei, ele vira o caps_word, caso eu continue pressionando o shift, ele se mantem como shift 
-
-&mt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <180>;
-    quick-tap-ms = <16>;
-};
-
 //SK = 
-
-&sk {
-    release-after-ms = <2000>;
-    quick-release;
-};
-
 //Fim dos comportamentos de teclas
 
 / {
@@ -54,61 +41,10 @@
     combos {
         compatible = "zmk,combos";
 
-        CapsLock {
-            timeout-ms = <30>;
-            key-positions = <10 0>;
-            bindings = <&kp CAPSLOCK>;
-        };
-
         Sen1 {
             bindings = <&Sen1>;
             key-positions = <14 3 2>;
             layers = <5>;
-        };
-
-        Esc {
-            bindings = <&kp ESC>;
-            key-positions = <0 1>;
-        };
-
-        Tab {
-            bindings = <&kp TAB>;
-            key-positions = <23 24>;
-        };
-
-        Select {
-            bindings = <&kp LC(A)>;
-            key-positions = <20 10>;
-        };
-
-        Desfazer {
-            bindings = <&kp LC(Z)>;
-            key-positions = <20 21>;
-        };
-
-        Refazer {
-            bindings = <&kp LC(Y)>;
-            key-positions = <20 21 22>;
-        };
-
-        Copiar {
-            bindings = <&kp LC(C)>;
-            key-positions = <21 22>;
-        };
-
-        Recortar {
-            bindings = <&kp LC(X)>;
-            key-positions = <21 22 23>;
-        };
-
-        Colar {
-            bindings = <&kp LC(V)>;
-            key-positions = <22 23>;
-        };
-
-        ColarShift {
-            bindings = <&kp LS(LC(V))>;
-            key-positions = <24 23 22>;
         };
     };
 
@@ -151,7 +87,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DIRLAYER";
             #binding-cells = <0>;
-            bindings = <&mo 3>, <&mo 4>;
+            bindings = <&mo 3>;
         };
 
         Num_Func: Num_Func {
@@ -159,6 +95,20 @@
             label = "NUM_FUNC";
             #binding-cells = <0>;
             bindings = <&mo 1>, <&mo 2>;
+        };
+
+        HRM_ESQ: HRM_ESQ {
+            compatible = "zmk,behavior-tap-dance";
+            label = "HRM_ESQ";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&mo 8>;
+        };
+
+        HRM_DIR: HRM_DIR {
+            compatible = "zmk,behavior-tap-dance";
+            label = "HRM_DIR";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&mo 9>;
         };
     };
 
@@ -170,10 +120,10 @@
         default_layer {
             display-name = "BASE";
             bindings = <
-&kp Q       &kp W       &kp E        &kp R        &kp T                                     &kp Y      &kp U        &kp I          &kp O       &kp P
-&hm LGUI A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G                                     &kp H      &hm RSHFT J  &hm LCTRL K    &hm LALT L  &hm LGUI SEMI
-&kp Z       &kp X       &kp C        &kp V        &kp B                                     &kp N      &kp M        &mt SQT COMMA  &kp DOT     &mt BSLH FSLH
-                                     &EsqLayer    &Num_Func  &mt LALT SPACE      &kp SPACE  &DirLayer  &mo 4
+&kp Q  &kp W  &kp E  &kp R      &kp T                              &kp Y      &kp U  &kp I      &kp O    &kp P
+&kp A  &kp S  &kp D  &kp F      &kp G                              &kp H      &kp J  &kp K      &kp L    &mt SQT SEMI
+&kp Z  &kp X  &kp C  &kp V      &kp B                              &kp N      &kp M  &kp COMMA  &kp DOT  &mt BSLH FSLH
+                     &EsqLayer  &Num_Func  &HRM_ESQ      &HRM_DIR  &DirLayer  &mo 4
             >;
         };
 
@@ -191,10 +141,10 @@
             //                  └─────┴─────┘               └───────┴─────┘
 
             bindings = <
-&kp N1  &kp N2  &kp N3  &kp LBKT      &kp ENTER                        &none  &none  &none  &none  &none
-&kp N4  &kp N5  &kp N6  &kp RBKT      &kp BACKSPACE                    &none  &none  &none  &none  &none
-&kp N7  &kp N8  &kp N9  &mt COMMA N0  &kp DEL                          &none  &none  &none  &none  &none
-                        &none         &none          &none      &none  &none  &none
+&kp N1  &kp N2  &kp N3  &kp LBKT      &kp ENTER                                      &none  &none  &none  &none  &none
+&kp N4  &kp N5  &kp N6  &kp RBKT      &mt LC(BACKSPACE) BACKSPACE                    &none  &none  &none  &none  &none
+&kp N7  &kp N8  &kp N9  &mt COMMA N0  &kp DEL                                        &none  &none  &none  &none  &none
+                        &none         &none                        &none      &none  &none  &none
             >;
         };
 
@@ -286,6 +236,24 @@
 &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &msc SCRL_DOWN                       &none  &none  &none  &none  &none
 &to 0     &msc SCRL_LEFT  &msc SCRL_RIGHT  &none            &none                                &none  &none  &none  &none  &none
                                            &none            &mkp MB1        &mkp MB2      &none  &none  &none
+            >;
+        };
+
+        HRM_ESQ {
+            bindings = <
+&kp ESC    &trans     &trans     &kp LC(Y)  &kp TAB                            &kp TAB        &kp LC(Y)  &trans     &trans     &kp ESC
+&kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp CAPS                           &kp CAPS       &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI
+&kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(LS(V))                      &kp LC(LS(V))  &kp LC(V)  &kp LC(C)  &kp LC(X)  &kp LC(Z)
+                                 &trans     &trans         &trans      &trans  &trans         &trans
+            >;
+        };
+
+        HRM_DIR {
+            bindings = <
+&kp ESC    &trans     &trans     &kp LC(Y)  &kp TAB                            &kp TAB        &kp LC(Y)  &trans     &trans     &kp ESC
+&kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp CAPS                           &kp CAPS       &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI
+&kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(LS(V))                      &kp LC(LS(V))  &kp LC(V)  &kp LC(C)  &kp LC(X)  &kp LC(Z)
+                                 &trans     &trans         &trans      &trans  &trans         &trans
             >;
         };
 
