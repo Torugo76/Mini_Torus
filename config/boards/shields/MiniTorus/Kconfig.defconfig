@@ -16,8 +16,9 @@ if SHIELD_MINITORUS_LEFT
 config ZMK_KEYBOARD_NAME
     default "minitorus"
 
-CONFIG_ZMK_SPLIT_ROLE_CENTRAL
-    default y
+
+CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+
 
 endif
 
