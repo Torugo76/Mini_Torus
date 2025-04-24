@@ -4,8 +4,9 @@
 config ZMK_SPLIT
     default y
 
-CONFIG_ZMK_SPLIT_BLE
-	default y
+
+CONFIG_ZMK_SPLIT_BLE=y
+
 
 config ZMK_USB
 	default y
