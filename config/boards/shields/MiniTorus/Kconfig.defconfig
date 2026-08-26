@@ -1,12 +1,17 @@
-if SHIELD_MINITORUS_LEFT || SHIELD_MINITORUS_RIGHT
+if SHIELD_MINITORUS_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "minitorus"
 
-config ZMK_SPLIT
-    default y
-
-config ZMK_USB
+config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
+
+if SHIELD_MINITORUS_LEFT || SHIELD_MINITORUS_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
+
