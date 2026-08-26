@@ -1,10 +1,17 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
 if SHIELD_MINITORUS_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "minitorus"
 
+endif
+
+if SHIELD_MINITORUS_RIGHT
+
 config ZMK_SPLIT_ROLE_CENTRAL
-    default y
+    default n
 
 endif
 
@@ -14,4 +21,3 @@ config ZMK_SPLIT
     default y
 
 endif
-
