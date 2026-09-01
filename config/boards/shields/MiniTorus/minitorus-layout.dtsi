@@ -6,55 +6,65 @@
         display-name = "Default";
         kscan = <&kscan0>;
         transform = <&default_transform>;
+        // ┌──────┬──────┬──────┬──────┬──────┐         ┌──────┬──────┬──────┬──────┬──────┐
+        // │ SW0  │ SW1  │ SW2  │ SW3  │ SW4  │         │ SW5  │ SW6  │ SW7  │ SW8  │ SW9  │
+        // ├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
+        // │ SW10 │ SW11 │ SW12 │ SW13 │ SW14 │         │ SW15 │ SW16 │ SW17 │ SW18 │ SW19 │
+        // ├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
+        // │ SW20 │ SW21 │ SW22 │ SW23 │ SW24 │         │ SW25 │ SW26 │ SW27 │ SW28 │ SW29 │
+        // └──────┴──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┴──────┘
+        //               │ SW30 │ SW31 │ SW32 │         │ SW33 │ SW34 │ SW35 │
+        //               └──────┴──────┴──────┘         └──────┴──────┴──────┘
+        keys 
+            //                      w    h      x     y      rot  rx   ry
+            // ------------------------------------------------------------
+            // LINHA 1 (Topo)
+            = <&key_physical_attrs 100  100    100   160      0    0    0> // SW0  (Esq)
+            , <&key_physical_attrs 100  100    200    70      0    0    0> // SW1  (Esq)
+            , <&key_physical_attrs 100  100    300    45      0    0    0> // SW2  (Esq)
+            , <&key_physical_attrs 100  100    400    75      0    0    0> // SW3  (Esq)
+            , <&key_physical_attrs 100  100    500   100      0    0    0> // SW4  (Esq)
 
-        keys  //                     w   h    x    y     rot    rx    ry
-            // row 1
-            = <&key_physical_attrs 100 100  100  160       0     0     0>
-            , <&key_physical_attrs 100 100  200   70       0     0     0>
-            , <&key_physical_attrs 100 100  300   45       0     0     0>
-            , <&key_physical_attrs 100 100  400   75       0     0     0>
-            , <&key_physical_attrs 100 100  500  100       0     0     0>
+            , <&key_physical_attrs 100  100    900   100      0    0    0> // SW5  (Dir)
+            , <&key_physical_attrs 100  100   1000    75      0    0    0> // SW6  (Dir)
+            , <&key_physical_attrs 100  100   1100    45      0    0    0> // SW7  (Dir)
+            , <&key_physical_attrs 100  100   1200    70      0    0    0> // SW8  (Dir)
+            , <&key_physical_attrs 100  100   1300   160      0    0    0> // SW9  (Dir)
 
-            , <&key_physical_attrs 100 100  900  100       0     0     0>
-            , <&key_physical_attrs 100 100 1000   75       0     0     0>
-            , <&key_physical_attrs 100 100 1100   45       0     0     0>
-            , <&key_physical_attrs 100 100 1200   70       0     0     0>
-            , <&key_physical_attrs 100 100 1300  160       0     0     0>
+            // LINHA 2 (Meio / Home Row)
+            , <&key_physical_attrs 100  100    100   260      0    0    0> // SW10 (Esq)
+            , <&key_physical_attrs 100  100    200   170      0    0    0> // SW11 (Esq)
+            , <&key_physical_attrs 100  100    300   145      0    0    0> // SW12 (Esq)
+            , <&key_physical_attrs 100  100    400   175      0    0    0> // SW13 (Esq)
+            , <&key_physical_attrs 100  100    500   200      0    0    0> // SW14 (Esq)
 
-            // row 2
-            , <&key_physical_attrs 100 100  100  260       0     0     0>
-            , <&key_physical_attrs 100 100  200  170       0     0     0>
-            , <&key_physical_attrs 100 100  300  145       0     0     0>
-            , <&key_physical_attrs 100 100  400  175       0     0     0>
-            , <&key_physical_attrs 100 100  500  200       0     0     0>
+            , <&key_physical_attrs 100  100    900   200      0    0    0> // SW15 (Dir)
+            , <&key_physical_attrs 100  100   1000   175      0    0    0> // SW16 (Dir)
+            , <&key_physical_attrs 100  100   1100   145      0    0    0> // SW17 (Dir)
+            , <&key_physical_attrs 100  100   1200   170      0    0    0> // SW18 (Dir)
+            , <&key_physical_attrs 100  100   1300   260      0    0    0> // SW19 (Dir)
 
-            , <&key_physical_attrs 100 100  900  200       0     0     0>
-            , <&key_physical_attrs 100 100 1000  175       0     0     0>
-            , <&key_physical_attrs 100 100 1100  145       0     0     0>
-            , <&key_physical_attrs 100 100 1200  170       0     0     0>
-            , <&key_physical_attrs 100 100 1300  260       0     0     0>
+            // LINHA 3 (Baixo)
+            , <&key_physical_attrs 100  100    100   360      0    0    0> // SW20 (Esq)
+            , <&key_physical_attrs 100  100    200   270      0    0    0> // SW21 (Esq)
+            , <&key_physical_attrs 100  100    300   245      0    0    0> // SW22 (Esq)
+            , <&key_physical_attrs 100  100    400   275      0    0    0> // SW23 (Esq)
+            , <&key_physical_attrs 100  100    500   300      0    0    0> // SW24 (Esq)
 
-            // row 3
-            , <&key_physical_attrs 100 100  100  360       0     0     0>
-            , <&key_physical_attrs 100 100  200  270       0     0     0>
-            , <&key_physical_attrs 100 100  300  245       0     0     0>
-            , <&key_physical_attrs 100 100  400  275       0     0     0>
-            , <&key_physical_attrs 100 100  500  300       0     0     0>
+            , <&key_physical_attrs 100  100    900   300      0    0    0> // SW25 (Dir)
+            , <&key_physical_attrs 100  100   1000   275      0    0    0> // SW26 (Dir)
+            , <&key_physical_attrs 100  100   1100   245      0    0    0> // SW27 (Dir)
+            , <&key_physical_attrs 100  100   1200   270      0    0    0> // SW28 (Dir)
+            , <&key_physical_attrs 100  100   1300   360      0    0    0> // SW29 (Dir)
 
-            , <&key_physical_attrs 100 100  900  300       0     0     0>
-            , <&key_physical_attrs 100 100 1000  275       0     0     0>
-            , <&key_physical_attrs 100 100 1100  245       0     0     0>
-            , <&key_physical_attrs 100 100 1200  270       0     0     0>
-            , <&key_physical_attrs 100 100 1300  360       0     0     0>
+            // POLEGARES (Angulados)
+            , <&key_physical_attrs 100  100    430   400     15    0    0> // SW30 (Esq - Externo)
+            , <&key_physical_attrs 100  100    530   420     30    0    0> // SW31 (Esq - Interno)
+            , <&key_physical_attrs 100  100    630   440     30    0    0> // SW32 (Esq - Interno/Espaço)
 
-            // row 4
-            , <&key_physical_attrs 100 100  430  400       15    0     0>
-            , <&key_physical_attrs 100 100  530  420       30    0     0>
-            , <&key_physical_attrs 100 100  630  440       30    0     0>
-
-            , <&key_physical_attrs 100 100  770  440       75    0     0>
-            , <&key_physical_attrs 100 100  870  420       60    0     0>
-            , <&key_physical_attrs 100 100  970  400       0     0     0>
+            , <&key_physical_attrs 100  100    770   440     75    0    0> // SW33 (Dir - Interno/Espaço)
+            , <&key_physical_attrs 100  100    870   420     60    0    0> // SW34 (Dir - Interno)
+            , <&key_physical_attrs 100  100    970   400      0    0    0> // SW35 (Dir - Externo)
             ;
     };
 };
