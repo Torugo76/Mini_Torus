@@ -134,7 +134,7 @@
       #binding-cells = <0>;
       bindings = <&mo MEDIA>, <&mo BT>;
     };
-  
+
     HRM_ESQ: HRM_ESQ {
       compatible = "zmk,behavior-tap-dance";
       label = "HRM_ESQ";
