@@ -147,19 +147,19 @@
       bindings = <&mo MEDIA>, <&mo BT>;
     };
 
-    HRM_ESQ: HRM_ESQ {
-      compatible = "zmk,behavior-tap-dance";
-      label = "HRM_ESQ";
-      #binding-cells = <0>;
-      bindings = <&kp SPACE>, <&mo 8>;
-    };
+    //HRM_ESQ: HRM_ESQ {
+      //compatible = "zmk,behavior-tap-dance";
+      //label = "HRM_ESQ";
+      //#binding-cells = <0>;
+      //bindings = <&kp SPACE>, <&mo 8>;
+    //};
 
-    HRM_DIR: HRM_DIR {
-      compatible = "zmk,behavior-tap-dance";
-      label = "HRM_DIR";
-      #binding-cells = <0>;
-      bindings = <&kp SPACE>, <&mo 9>;
-    };
+    //HRM_DIR: HRM_DIR {
+      //compatible = "zmk,behavior-tap-dance";
+      //label = "HRM_DIR";
+      //#binding-cells = <0>;
+      //bindings = <&kp SPACE>, <&mo 9>;
+    //};
   };
 
   keymap {
