@@ -103,6 +103,18 @@
       retro-tap;
     };
 
+    // NOVO COMPORTAMENTO: Hold-Tap para teclas normais (Substitui o &mt)
+    ht: hold_tap_keys {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOLD_TAP_KEYS";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      quick-tap-ms = <150>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+
+
     // POLEGAR ESQUERDO EXTERNO (1x = F1 a F12 | 2x = Bluetooth)
     td_esq_out: td_esq_out {
       compatible = "zmk,behavior-tap-dance";
@@ -171,8 +183,8 @@
       //             └─────┴─────┴─────┘                └─────┴─────┴─────┘
       bindings = <
         &kp Q       &kp W       &kp E        &kp R        &kp T             &kp Y        &kp U      &kp I      &kp O    &kp P
-        &kp A       &kp S       &kp D        &kp F        &kp G             &kp H        &kp J      &kp K      &kp L    &mt SQT SEMI
-        &kp Z       &kp X       &kp C        &kp V        &kp B             &kp N        &kp M      &kp COMMA  &kp DOT  &mt BSLH FSLH
+        &kp A       &kp S       &kp D        &kp F        &kp G             &kp H        &kp J      &kp K      &kp L    &ht SQT SEMI
+        &kp Z       &kp X       &kp C        &kp V        &kp B             &kp N        &kp M      &kp COMMA  &kp DOT  &ht BSLH FSLH
         &td_esq_out &td_esq_in  &lt 8 SPACE               &lt 9 SPACE       &td_dir_in   &td_dir_out
       >;
     };
@@ -189,9 +201,9 @@
       //             │     │     │     │                │     │     │     │
       //             └─────┴─────┴─────┘                └─────┴─────┴─────┘
       bindings = <
-        &kp N1  &kp N2  &kp N3  &mt EQUAL LBKT  &kp ENTER                    &kp KP_PLUS      &kp EQUAL     &none  &none  &none
-        &kp N4  &kp N5  &kp N6  &mt MINUS RBKT  &mt LC(BACKSPACE) BACKSPACE  &kp KP_MULTIPLY  &kp KP_MINUS  &none  &none  &none
-        &kp N7  &kp N8  &kp N9  &mt COMMA N0    &kp DEL                      &kp KP_DIVIDE    &none         &none  &none  &none
+        &kp N1  &kp N2  &kp N3  &ht EQUAL LBKT  &kp ENTER                    &kp KP_PLUS      &kp EQUAL     &none  &none  &none
+        &kp N4  &kp N5  &kp N6  &ht MINUS RBKT  &ht LC(BACKSPACE) BACKSPACE  &kp KP_MULTIPLY  &kp KP_MINUS  &none  &none  &none
+        &kp N7  &kp N8  &kp N9  &ht COMMA N0    &kp DEL                      &kp KP_DIVIDE    &none         &none  &none  &none
         &none   &none   &none                                                &none            &none         &none
       >;
     };
@@ -208,9 +220,9 @@
       //             │     │     │     │                │     │     │     │
       //             └─────┴─────┴─────┘                └─────┴─────┴─────┘
       bindings = <
-        &none  &none  &none  &kp EQUAL     &kp KP_PLUS        &kp ENTER      &mt LBKT EQUAL   &kp KP_N1  &kp KP_N2  &kp KP_N3
-        &none  &none  &none  &kp KP_MINUS  &kp KP_MULTIPLY    &kp BACKSPACE  &mt RBKT MINUS   &kp KP_N4  &kp KP_N5  &kp KP_N6
-        &none  &none  &none  &none         &kp KP_DIVIDE      &kp DEL        &mt KP_N0 COMMA  &kp KP_N7  &kp KP_N8  &kp KP_N9
+        &none  &none  &none  &kp EQUAL     &kp KP_PLUS        &kp ENTER      &ht LBKT EQUAL   &kp KP_N1  &kp KP_N2  &kp KP_N3
+        &none  &none  &none  &kp KP_MINUS  &kp KP_MULTIPLY    &kp BACKSPACE  &ht RBKT MINUS   &kp KP_N4  &kp KP_N5  &kp KP_N6
+        &none  &none  &none  &none         &kp KP_DIVIDE      &kp DEL        &ht KP_N0 COMMA  &kp KP_N7  &kp KP_N8  &kp KP_N9
         &none  &none  &none                                   &none          &none            &none
       >;
     };
@@ -246,7 +258,7 @@
       //             │     │     │     │                │     │     │     │
       //             └─────┴─────┴─────┘                └─────┴─────┴─────┘
       bindings = <
-        &none  &none  &none  &none  &none         &kp ENTER      &none     &kp UP     &none      &mt MINUS EQUAL
+        &none  &none  &none  &none  &none         &kp ENTER      &none     &kp UP     &none      &ht MINUS EQUAL
         &none  &none  &none  &none  &none         &kp BACKSPACE  &kp LEFT  &kp DOWN   &kp RIGHT  &kp TILDE
         &none  &none  &none  &none  &none         &kp DEL        &none     &kp PG_UP  &kp PG_DN  &kp BSLH
         &none  &none  &none                       &none          &none     &none
@@ -268,7 +280,7 @@
         &kp F1  &kp F2  &kp F3  &kp F12  &none            &none  &none  &none  &none  &none
         &kp F4  &kp F5  &kp F6  &kp F11  &none            &none  &none  &none  &none  &none
         &kp F7  &kp F8  &kp F9  &kp F10  &none            &none  &none  &none  &none  &none
-        &none  &none   &none                             &none  &none  &none
+        &trans  &none   &none                             &none  &none  &none
       >;
     };
 
@@ -287,7 +299,7 @@
         &none  &none  &none  &none  &none            &none  &none       &kp C_VOL_UP  &kp C_PP    &none
         &none  &none  &none  &none  &none            &none  &kp C_PREV  &kp C_VOL_DN  &kp C_NEXT  &none
         &none  &none  &none  &none  &none            &none  &kp C_RW    &kp C_MUTE    &kp C_FF    &none
-        &none  &none  &studio_unlock                 &none  &none       &none
+        &none  &none  &studio_unlock                 &none  &none       &trans
       >;
     };
 
