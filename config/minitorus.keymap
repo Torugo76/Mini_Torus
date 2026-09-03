@@ -131,7 +131,7 @@
       compatible = "zmk,behavior-tap-dance";
       label = "TD_ESQ_OUT";
       #binding-cells = <0>;
-      tapping-term-ms = <150>;
+      tapping-term-ms = <350>;
       bindings = <&mo NUM_ESQ>, <&mo FUNC>;
     };
 
@@ -157,7 +157,7 @@
       compatible = "zmk,behavior-tap-dance";
       label = "TD_DIR_OUT";
       #binding-cells = <0>;
-      tapping-term-ms = <150>;
+      tapping-term-ms = <350>;
       bindings = <&mo NUM_DIR>, <&mo MEDIA>;
     };
 
